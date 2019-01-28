@@ -20,7 +20,9 @@ sudo systemctl restart combine1090
 ```
 
 ## View the map:
+
 http://192.168.2.33/combine1090
+
 Replace the IP address with the IP address of your Raspberry Pi or wherever combine1090 is running.
 
 ### Deinstallation:
