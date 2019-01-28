@@ -1,0 +1,18 @@
+
+[Unit]
+Description=combine1090 - redirect beast data
+Documentation=https://github.com/wiedehopf/combine1090
+Wants=network.target
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/combine1090
+User=dump1090
+ExecStart=/usr/local/bin/combine1090.sh
+Type=simple
+Restart=always
+RestartSec=30
+Nice=-5
+
+[Install]
+WantedBy=default.target
