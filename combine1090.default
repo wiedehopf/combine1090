@@ -1,7 +1,11 @@
 #Append all IP addresses running dump1090/piaware in the next line, 127.0.0.1 is just an example you should replace it
 SOURCES= 127.0.0.1 127.0.0.1
 
-#for the IP addresses in SOURCES the ports 30005 and 30105 are used, if you want to only redirect a single or non-standard port use the following:
+
+# which ports to collect beast data from (for piaware/dump1090-fa this is 30005 for ADS-B and 30105 for MLAT)
+PORTS= 30005 30105
+
+#for the IP addresses in SOURCES all PORTS are used, if you want to only forward a single or non-standard port use the following:
 #uncomment and add IP addresses with ports for redirection
 #CUSTOM=127.0.0.1:29005 127.0.0.1:29999
 

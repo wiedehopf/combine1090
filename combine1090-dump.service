@@ -1,6 +1,6 @@
 
 [Unit]
-Description=combine1090-dump - separate dump1090-fa instance to display multiple beast feeds from other dump1090 instances running on other computers
+Description=combine1090-dump - combine1090 dump1090-fa instance
 Documentation=https://github.com/wiedehopf/combine1090
 Wants=network.target
 After=network.target
