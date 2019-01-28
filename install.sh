@@ -1,5 +1,15 @@
 #!/bin/bash
 
+
+if ! dump1090-fa --help >/dev/null
+then
+	echo --------------
+	echo "Installation failed: combine1090 requires dump1090-fa to be installed!"
+	echo "Install dump1090-fa and run this installer again."
+	exit 1
+fi
+
+
 if [ -z $1 ] || [ $1 != "test" ]
 then
 	cd /tmp
