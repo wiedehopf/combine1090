@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /tmp
-wget https://github.com/wiedehopf/combine1090/archive/master.zip
-unzip master.zip
+wget -O master.zip https://github.com/wiedehopf/combine1090/archive/master.zip
+unzip -o master.zip
 cd combine1090-master
 
 
