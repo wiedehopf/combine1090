@@ -11,6 +11,7 @@ fi
 
 if ! socat -h >/dev/null
 then
+	apt-get update
 	apt-get install -y socat
 fi
 
