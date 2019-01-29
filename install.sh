@@ -9,6 +9,11 @@ then
 	exit 1
 fi
 
+if ! socat -h >/dev/null
+then
+	apt-get install -y socat
+fi
+
 
 if [ -z $1 ] || [ $1 != "test" ]
 then
