@@ -36,7 +36,9 @@ fi
 
 
 cp combine1090.default /etc/default/combine1090
-cp combine1090.service combine1090-dump.service /etc/systemd/system
+cp combine1090.service combine1090-dump.service /lib/systemd/system
+#unmask or get rid of old versions of the service files
+rm -f /etc/systemd/system/combine1090-dump.service /etc/systemd/system/combine1090.service
 cp combine1090.sh /usr/local/bin
 chmod +x /usr/local/bin/combine1090.sh
 cp 89-combine1090.conf /etc/lighttpd/conf-available
