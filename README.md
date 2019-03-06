@@ -1,6 +1,8 @@
 # combine1090
 Combine data from multiple dump1090 receivers (or other receivers providing beast protocol data) into one dump1090-fa
 
+Does not interfere with an already configured dump1090-fa but instead creates another instance with its own map.
+
 ## Installation:
 ```
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/install.sh)"
