@@ -9,7 +9,7 @@ PORTS= 30005 30105
 #uncomment and add IP addresses with ports for redirection
 #CUSTOM=127.0.0.1:29005 127.0.0.1:29999
 
-#you should't need to change the rest of this file
+#where the data shall go, for display under /combine1090 leave it as is.
 TARGET=127.0.0.1:29004
 
 #options for dump1090-fa where all the data goes
