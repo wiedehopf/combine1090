@@ -51,6 +51,7 @@ Then instead of installing piaware which is not needed for combine1090, use the 
 ```
 sudo apt update
 sudo apt upgrade -y
+sudo apt remove dump1090-mutability dump1090
 sudo lighty-disable-mod dump1090
 sudo apt install dump1090-fa
 ```
