@@ -39,19 +39,35 @@ sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine109
 
 ## Installing dump1090-fa
 
-Install the repository, using commands listed in the first dark box of this page: https://flightaware.com/adsb/piaware/install
-The commands should look like this, but the version may have changed, which is why you should check the mentioned web page.
+In case you are using fr24feed, you need to first change the fr24feed settings:
 ```
-wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.6.3_all.deb
-sudo dpkg -i piaware-repository_3.6.3_all.deb
+sudo nano /etc/fr24feed.ini
+```
+Change the first line and the 3rd to 5th line to the following, leave the fr24key as it is.
+```
+receiver="beast-tcp"
+fr24key="xxxxxxxxxxxxxxxx"
+host="127.0.0.1:30005"
+bs="no"
+raw="no"
+```
+Ctrl-o and enter to save, Ctrl-X to exit
+
+To activate the settings, restart fr24feed:
+```
+sudo systemctl restart fr24feed
 ```
 
-Then instead of installing piaware which is not needed for combine1090, use the following commands to install dump1090-fa
+Use the following commands to install dump1090-fa
+(piaware will not be installed, the piaware-repository is where apt install will get the dump1090-fa package from)
 
 ```
+wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.1_all.deb
+sudo dpkg -i piaware-repository_3.7.1_all.deb
 sudo apt update
 sudo apt upgrade -y
-sudo apt remove dump1090-mutability dump1090
-sudo lighty-disable-mod dump1090
-sudo apt install dump1090-fa
+sudo apt remove -y dump1090-mutability
+sudo apt remove -y dump1090
+sudo rm /etc/lighttpd/conf-enabled/89-dump1090.conf
+sudo apt install -y dump1090-fa
 ```
