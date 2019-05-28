@@ -10,6 +10,11 @@ On how to install dump1090-fa please scroll down to the end of this page.
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/install.sh)"
 ```
 (or download install.sh and execute it with "bash install.sh")
+## Installation data redirection only:
+```
+sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/redirect_only.sh)"
+```
+(dump1090-fa config settings in /etc/default/combine1090 have no effect, you need to provide a target to feed the data into yoursefl)
 
 ## Configuration:
 
