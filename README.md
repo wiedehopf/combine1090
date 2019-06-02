@@ -59,7 +59,7 @@ host="127.0.0.1:30005"
 bs="no"
 raw="no"
 ```
-Ctrl-o and enter to save, Ctrl-X to exit
+Ctrl-o and enter to save, Ctrl-o to exit
 
 To activate the settings, restart fr24feed:
 ```
@@ -78,4 +78,36 @@ sudo apt remove -y dump1090-mutability
 sudo apt remove -y dump1090
 sudo rm /etc/lighttpd/conf-enabled/89-dump1090.conf
 sudo apt install -y dump1090-fa
+```
+
+
+You should now have the map available at the IP-address of your pi:
+http://IP-address/dump1090-fa/
+
+Changing the gain and adding a location for dump1090-fa:
+Open the configuration file:
+```
+sudo nano /etc/default/dump1090-fa
+```
+In this line: `RECEIVER_OPTIONS="--device-index 0 --gain -10 --ppm 0 --net-bo-port 30005"`
+
+You can change the number after gain, -10 is the maximum, 49 is the next lower value you can try.
+(further advice which gain to use: https://discussions.flightaware.com/t/thoughts-on-optimizing-gain/44482)
+
+You can also configure your location to have the map navigate there automatically when you open the page:
+Add lat and lon to the decoder options line like in the following example:
+```
+DECODER_OPTIONS="--lat 50.1 --lon 10.0 --max-range 360"
+```
+
+Ctrl-o and enter to save, Ctrl-x to exit
+
+Then restart dump1090-fa to apply the settings:
+```
+sudo systemctl restart dump1090-fa
+```
+
+To check if everything worked, you can take a look at the log:
+```
+sudo journalctl -e -u dump1090-fa
 ```
