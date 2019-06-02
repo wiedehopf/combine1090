@@ -47,11 +47,15 @@ sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine109
 
 ## Installing dump1090-fa
 
-In case you are using fr24feed, you need to first change the fr24feed settings:
+skip to "dump1090-fa package installation" if you don't use FR24
+
+#### fr24feed settings for people using it:
+Open the fr24feed settings:
 ```
 sudo nano /etc/fr24feed.ini
 ```
-Change the first line and the 3rd to 5th line to the following, leave the fr24key as it is.
+
+Change the first 5 lines except for the fr24key to the values shown below:
 ```
 receiver="beast-tcp"
 fr24key="xxxxxxxxxxxxxxxx"
@@ -59,15 +63,19 @@ host="127.0.0.1:30005"
 bs="no"
 raw="no"
 ```
-Ctrl-o and enter to save, Ctrl-o to exit
+
+Ctrl-o and enter to save, Ctrl-x to exit
 
 To activate the settings, restart fr24feed:
 ```
 sudo systemctl restart fr24feed
 ```
 
-Use the following commands to install dump1090-fa
+#### dump1090-fa package installation
+
 (piaware will not be installed, the piaware-repository is where apt install will get the dump1090-fa package from)
+
+Execute the following commands:
 
 ```
 wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.1_all.deb
@@ -80,18 +88,21 @@ sudo rm /etc/lighttpd/conf-enabled/89-dump1090.conf
 sudo apt install -y dump1090-fa
 ```
 
-
 You should now have the map available at the IP-address of your pi:
 http://IP-address/dump1090-fa/
 
-Changing the gain and adding a location for dump1090-fa:
+#### configuring dump1090-fa gain
+
 Open the configuration file:
 ```
 sudo nano /etc/default/dump1090-fa
 ```
-In this line: `RECEIVER_OPTIONS="--device-index 0 --gain -10 --ppm 0 --net-bo-port 30005"`
 
-You can change the number after gain, -10 is the maximum, 49 is the next lower value you can try.
+In this line:
+
+`RECEIVER_OPTIONS="--device-index 0 --gain -10 --ppm 0 --net-bo-port 30005"`
+
+change the number after gain, -10 is the maximum, 49 is the next lower value you can try.
 (further advice which gain to use: https://discussions.flightaware.com/t/thoughts-on-optimizing-gain/44482/2)
 
 Available gain settings:
@@ -100,8 +111,22 @@ Available gain settings:
 28.0 29.7 32.8 33.8 36.4 37.2 38.6 40.2 42.1 43.4 43.9 44.5 48.0 49.6 -10
 ```
 
+Ctrl-o and enter to save, Ctrl-x to exit
+
+Then restart dump1090-fa to apply the new gain:
+```
+sudo systemctl restart dump1090-fa
+```
+
+
+#### configuring dump1090-fa location
 
 You can also configure your location to have the map navigate there automatically when you open the page:
+
+```
+sudo nano /etc/default/dump1090-fa
+```
+
 Add lat and lon to the decoder options line like in the following example:
 ```
 DECODER_OPTIONS="--lat 50.1 --lon 10.0 --max-range 360"
@@ -114,6 +139,7 @@ Then restart dump1090-fa to apply the settings:
 sudo systemctl restart dump1090-fa
 ```
 
+#### Troubleshooting dump1090-fa
 To check if everything worked, you can take a look at the log:
 ```
 sudo journalctl -e -u dump1090-fa
