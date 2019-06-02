@@ -92,7 +92,7 @@ sudo nano /etc/default/dump1090-fa
 In this line: `RECEIVER_OPTIONS="--device-index 0 --gain -10 --ppm 0 --net-bo-port 30005"`
 
 You can change the number after gain, -10 is the maximum, 49 is the next lower value you can try.
-(further advice which gain to use: https://discussions.flightaware.com/t/thoughts-on-optimizing-gain/44482)
+(further advice which gain to use: https://discussions.flightaware.com/t/thoughts-on-optimizing-gain/44482/2)
 
 Available gain settings:
 ```
