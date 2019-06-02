@@ -94,6 +94,13 @@ In this line: `RECEIVER_OPTIONS="--device-index 0 --gain -10 --ppm 0 --net-bo-po
 You can change the number after gain, -10 is the maximum, 49 is the next lower value you can try.
 (further advice which gain to use: https://discussions.flightaware.com/t/thoughts-on-optimizing-gain/44482)
 
+Available gain settings:
+```
+0.0 0.9 1.4 2.7 3.7 7.7 8.7 12.5 14.4 15.7 16.6 19.7 20.7 22.9 25.4
+28.0 29.7 32.8 33.8 36.4 37.2 38.6 40.2 42.1 43.4 43.9 44.5 48.0 49.6 -10
+```
+
+
 You can also configure your location to have the map navigate there automatically when you open the page:
 Add lat and lon to the decoder options line like in the following example:
 ```
