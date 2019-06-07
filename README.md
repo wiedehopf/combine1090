@@ -49,7 +49,9 @@ sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine109
 
 skip to "dump1090-fa package installation" if you don't use FR24
 
-#### fr24feed settings for people using it:
+
+<details><summary>#### fr24feed settings for people using it:</summary>
+<p>
 Open the fr24feed settings:
 ```
 sudo nano /etc/fr24feed.ini
@@ -70,6 +72,8 @@ To activate the settings, restart fr24feed:
 ```
 sudo systemctl restart fr24feed
 ```
+</p>
+</details>
 
 #### dump1090-fa package installation
 
