@@ -49,8 +49,9 @@ sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine109
 
 skip to "dump1090-fa package installation" if you don't use FR24
 
+#### 1: fr24feed settings for people using it:
 
-<details><summary>#### fr24feed settings for people using it:</summary>
+<details><summary>expand/collapse</summary>
 <p>
 Open the fr24feed settings:
 ```
@@ -75,7 +76,10 @@ sudo systemctl restart fr24feed
 </p>
 </details>
 
-#### dump1090-fa package installation
+#### 2: dump1090-fa package installation
+
+<details><summary>expand/collapse</summary>
+<p>
 
 (piaware will not be installed, the piaware-repository is where apt install will get the dump1090-fa package from)
 
@@ -95,8 +99,13 @@ sudo apt install -y dump1090-fa
 You should now have the map available at the IP-address of your pi:
 http://IP-address/dump1090-fa/
 
-#### configuring dump1090-fa gain
+</p>
+</details>
 
+#### 3: configuring dump1090-fa gain
+
+<details><summary>expand/collapse</summary>
+<p>
 Open the configuration file:
 ```
 sudo nano /etc/default/dump1090-fa
@@ -122,8 +131,13 @@ Then restart dump1090-fa to apply the new gain:
 sudo systemctl restart dump1090-fa
 ```
 
+</p>
+</details>
 
-#### configuring dump1090-fa location
+#### 4: configuring dump1090-fa location
+
+<details><summary>expand/collapse</summary>
+<p>
 
 You can also configure your location to have the map navigate there automatically when you open the page:
 
@@ -142,8 +156,10 @@ Then restart dump1090-fa to apply the settings:
 ```
 sudo systemctl restart dump1090-fa
 ```
+</p>
+</details>
 
-#### Troubleshooting dump1090-fa
+#### 5: Troubleshooting dump1090-fa
 To check if everything worked, you can take a look at the log:
 ```
 sudo journalctl -e -u dump1090-fa
