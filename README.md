@@ -43,6 +43,7 @@ http://192.168.2.33/combine1090
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/uninstall.sh)"
 ```
 
+-----
 
 
 ## Installing dump1090-fa
@@ -53,7 +54,9 @@ skip to "dump1090-fa package installation" if you don't use FR24
 
 <details><summary>expand/collapse</summary>
 <p>
+
 Open the fr24feed settings:
+
 ```
 sudo nano /etc/fr24feed.ini
 ```
@@ -75,6 +78,8 @@ sudo systemctl restart fr24feed
 ```
 </p>
 </details>
+
+-----
 
 #### 2: dump1090-fa package installation
 
@@ -101,6 +106,8 @@ http://IP-address/dump1090-fa/
 
 </p>
 </details>
+
+-----
 
 #### 3: configuring dump1090-fa gain
 
@@ -134,6 +141,8 @@ sudo systemctl restart dump1090-fa
 </p>
 </details>
 
+-----
+
 #### 4: configuring dump1090-fa location
 
 <details><summary>expand/collapse</summary>
@@ -158,6 +167,8 @@ sudo systemctl restart dump1090-fa
 ```
 </p>
 </details>
+
+-----
 
 #### 5: Troubleshooting dump1090-fa
 To check if everything worked, you can take a look at the log:
