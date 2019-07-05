@@ -12,15 +12,20 @@ trap "kill -2 0" SIGTERM
 
 for i in $SOURCES
 do
-	for p in $PORTS
+	for j in $TARGET
 	do
-		sleep .2
-		while true
+		for p in $PORTS
 		do
-			socat $opts -u TCP:$i:$p TCP:$TARGET
-			sleep $retry
-			sleep $(($RANDOM%10)).$(($RANDOM%10))
-		done &
+			sleep .2
+			while true
+			do
+				echo "Connecting: $j"
+				socat $opts -u TCP:$i:$p TCP:$j
+				echo "Connection failed: $j"
+				sleep $retry
+				sleep $(($RANDOM%10)).$(($RANDOM%10))
+			done &
+		done
 	done
 done
 
@@ -33,6 +38,10 @@ do
 		sleep $retry
 	done &
 done
+while true
+do
+	sleep 1024
+done &
 
 wait
 exit 0

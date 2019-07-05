@@ -12,7 +12,6 @@ ExecStart=-/usr/local/bin/combine1090.sh
 Type=simple
 Restart=always
 RestartSec=30
-Nice=-5
 
 [Install]
 WantedBy=default.target

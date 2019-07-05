@@ -35,7 +35,7 @@ fi
 # cd combine1090-master
 
 
-cp combine1090.default /etc/default/combine1090
+cp -n combine1090.default /etc/default/combine1090
 cp combine1090.service combine1090-dump.service /lib/systemd/system
 #unmask or get rid of old versions of the service files
 rm -f /etc/systemd/system/combine1090-dump.service /etc/systemd/system/combine1090.service
