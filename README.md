@@ -25,7 +25,7 @@ sudo systemctl restart combine1090
 
 ## Install data redirection only
 ```
-sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/redirect_only.sh)"
+sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/redirect-only.sh)"
 ```
 Configure SOURCES (source ips), PORTs (source ports) and TARGET (target ip and port) in /etc/default/combine1090.
 There will be no dedicated dump1090-fa started as a target for data redirection, you need to provide that target yourself.
