@@ -17,7 +17,7 @@ ExecStart=/usr/bin/dump1090-fa \
 Type=simple
 Restart=on-failure
 RestartSec=30
-Nice=-5
+SyslogIdentifier=combine1090-dump
 
 [Install]
 WantedBy=default.target
