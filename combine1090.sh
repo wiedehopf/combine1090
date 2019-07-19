@@ -1,6 +1,6 @@
 #!/bin/bash
 
-opts="-T 90 -d"
+opts="-T 1800 -d"
 retry=15
 
 echo -n "Starting data redirection with socat for combine1090:    "
