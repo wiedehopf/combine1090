@@ -1,7 +1,8 @@
 #!/bin/bash
 
-opts="-T 1800 -d"
+opts="-d"
 retry=15
+tcpopts="keepalive,keepidle=30,keepintvl=30,keepcnt=2,connect-timeout=30,retry=20"
 
 echo -n "Starting data redirection with socat for combine1090:    "
 date
@@ -20,7 +21,7 @@ do
 			while true
 			do
 				echo "Redirecting: SOURCE: $i:$p TARGET: $j"
-				socat $opts -u TCP:$i:$p TCP:$j
+				socat $opts -u TCP:$i:$p,$tcpopts TCP:$j,$tcpopts
 				echo "Lost Connection: SOURCE: $i:$p TARGET: $j"
 				sleep $retry
 				sleep $(($RANDOM%10)).$(($RANDOM%10))
