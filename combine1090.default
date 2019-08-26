@@ -5,9 +5,13 @@ SOURCES= 127.0.0.1 127.0.0.1
 # which ports to collect beast data from (for piaware/dump1090-fa this is 30005 for ADS-B and 30105 for MLAT)
 PORTS= 30005 30105
 
-#for the IP addresses in SOURCES all PORTS are used, if you want to only forward a single or non-standard port use the following:
-#uncomment and add IP addresses with ports for redirection
+
+# for the IP addresses in SOURCES all PORTS are used
+# If your sources have the beast data on different ports, you can use CUSTOM to configure host:port combinations instead.
+# uncomment and add IP addresses with ports for redirection
 #CUSTOM=127.0.0.1:29005 127.0.0.1:29999
+
+# DON'T MODIFY BELOW IF YOU DON'T UNDERSTAND HOW THIS WHOLE THING WORKS
 
 #where the data shall go, for display under /combine1090 leave it as is.
 TARGET=127.0.0.1:29004

@@ -70,4 +70,5 @@ echo --------------
 echo "All done, don't forget to configure (sudo nano /etc/default/combine1090)"
 echo "After you are done with configuration don't forget"
 echo "to apply the new settings (sudo systemctl restart combine1090)"
+echo "Webinterface available at $(ip route | grep -m1 -o -P 'src \K[0-9,.]*')/combine1090"
 echo --------------
