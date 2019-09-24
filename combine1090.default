@@ -1,5 +1,9 @@
-#Append all IP addresses running dump1090/piaware in the next line, 127.0.0.1 is just an example you should replace it
-SOURCES= 127.0.0.1 127.0.0.1
+# Append the IP addresses of the feeders you want to combine in the next line:
+SOURCES= 127.0.0.1 192.168.2.23
+# Example: SOURCES= 127.0.0.1 192.168.2.23
+# this would combine the data from receivers running on 127.0.0.1 and 192.168.2.23
+
+
 
 
 # which ports to collect beast data from (for piaware/dump1090-fa this is 30005 for ADS-B and 30105 for MLAT)
