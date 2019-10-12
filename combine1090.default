@@ -20,6 +20,10 @@ PORTS= 30005 30105
 #where the data shall go, for display under /combine1090 leave it as is.
 TARGET=127.0.0.1:29004
 
+
+# for even more custom combination of soure/target, each pair specified in the SOTA variable is connected
+# SOTA="source:port/target:port source2:port/target2:port"
+
 #options for dump1090-fa where all the data goes
 RECEIVER_OPTIONS="--net-only"
 DECODER_OPTIONS="--max-range 360"

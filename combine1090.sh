@@ -42,6 +42,23 @@ do
 	done
 done
 
+for pair in $SOTA
+do
+	pair=(${pair//\// })
+	i=${pair[0]}
+	j=${pair[1]}
+	sleep .2
+	while true
+	do
+		echo "Redirecting: SOURCE: $i TARGET: $j"
+		socat $opts -u TCP:$i TCP:$j
+		echo "Lost connection: SOURCE: $i TARGET: $j"
+		sleep $retry
+		sleep $(($RANDOM%10)).$(($RANDOM%10))
+	done &
+done
+
+
 while true
 do
 	sleep 1024
