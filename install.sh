@@ -62,6 +62,7 @@ lighty-enable-mod combine1090 >/dev/null
 
 systemctl daemon-reload
 systemctl enable combine1090-dump
+sleep 1
 systemctl restart combine1090-dump lighttpd
 sleep 1
 systemctl restart combine1090

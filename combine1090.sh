@@ -51,7 +51,7 @@ do
 	while true
 	do
 		echo "Redirecting: SOURCE: $i TARGET: $j"
-		socat $opts -u TCP:$i TCP:$j
+		socat $opts -u TCP:$i,$tcpopts TCP:$j,$tcpopts
 		echo "Lost connection: SOURCE: $i TARGET: $j"
 		sleep $retry
 		sleep $(($RANDOM%10)).$(($RANDOM%10))
