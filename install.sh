@@ -26,6 +26,8 @@ fi
 # unzip -o master.zip
 # cd combine1090-master
 
+# remove old webinterface
+rm -f /etc/lighttpd/conf-enabled/89-combine1090.conf
 
 cp -n combine1090.default /etc/default/combine1090
 cp combine1090.service /lib/systemd/system
@@ -35,11 +37,10 @@ cp combine1090.sh /usr/local/bin
 chmod +x /usr/local/bin/combine1090.sh
 
 
-systemctl daemon-reload
 systemctl enable combine1090
-systemctl restart combine1090
 
 if [[ $1 == "redirect-only" ]]; then
+    systemctl restart combine1090
 	echo --------------
 	echo "All done, don't forget to configure (sudo nano /etc/default/combine1090)"
 	echo "After you are done with configuration don't forget"
@@ -48,7 +49,7 @@ if [[ $1 == "redirect-only" ]]; then
 	exit 0
 fi
 
-if ! dump1090-fa --help >/dev/null
+if ! command -v dump1090-fa &>/dev/null
 then
 	echo --------------
 	echo "Installation failed: combine1090 requires dump1090-fa to be installed!"
@@ -57,15 +58,13 @@ then
 fi
 
 cp combine1090-dump.service /lib/systemd/system
-cp 89-combine1090.conf /etc/lighttpd/conf-available
-lighty-enable-mod combine1090 >/dev/null
-
-systemctl daemon-reload
 systemctl enable combine1090-dump
-sleep 1
-systemctl restart combine1090-dump lighttpd
-sleep 1
+systemctl restart combine1090-dump
 systemctl restart combine1090
+
+wget -O tar1090-install.sh https://raw.githubusercontent.com/wiedehopf/tar1090/master/install.sh
+bash tar1090-install.sh /run/combine1090 combine1090
+
 
 echo --------------
 echo "All done, don't forget to configure (sudo nano /etc/default/combine1090)"
