@@ -49,11 +49,15 @@ if [[ $1 == "redirect-only" ]]; then
 	exit 0
 fi
 
-if ! command -v dump1090-fa &>/dev/null
-then
+if command -v dump1090-fa &>/dev/null; then
+    sed -i -e "s?PATH_TO_EXECUTABLE?$(command -v dump1090-fa)?g" combine1090-dump.service
+elif command -v readsb &>/dev/null; then
+    sed -i -e "s?PATH_TO_EXECUTABLE?$(command -v readsb)?g" combine1090-dump.service
+else
 	echo --------------
-	echo "Installation failed: combine1090 requires dump1090-fa to be installed!"
-	echo "Install dump1090-fa and run this installer again."
+	echo "Installation failed: combine1090 requires readsb or dump1090-fa to be installed!"
+	echo "Install readsb or dump1090-fa and run this installer again."
+    echo "https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-readsb"
 	exit 1
 fi
 

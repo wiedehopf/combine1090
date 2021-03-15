@@ -7,10 +7,6 @@ tcpopts="keepalive,keepidle=30,keepintvl=30,keepcnt=2,connect-timeout=30,retry=2
 echo -n "Starting data redirection with socat for combine1090:    "
 date
 
-
-trap "kill 0" SIGINT
-trap "kill -2 0" SIGTERM
-
 for j in $TARGET
 do
 	for i in $SOURCES

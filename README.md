@@ -1,9 +1,9 @@
 # combine1090
 Combine data from multiple dump1090 receivers (or other receivers providing beast protocol data)
 
-Does not interfere with an already configured dump1090-fa but instead creates another instance with its own webinterface at /combine1090
+Does not interfere with an already configured dump1090-fa / readsb but instead creates another instance with its own webinterface at /combine1090
 
-On how to install dump1090-fa please scroll down to the end of this page.
+Requires dump1090-fa or readsb to be installed, see end of this page for install scripts for either.
 
 ## Installation:
 ```
@@ -51,3 +51,6 @@ sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/combine
 
 ### Questions? FAQ!
 https://github.com/wiedehopf/adsb-wiki/wiki
+https://github.com/wiedehopf/adsb-wiki/wiki/Raspbian-Lite%3A-ADS-B-receiver
+https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-readsb
+https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-dump1090-fa
