@@ -11,7 +11,7 @@ EnvironmentFile=-/var/cache/piaware/location.env
 User=dump1090
 RuntimeDirectory=combine1090
 RuntimeDirectoryMode=0755
-ExecStart=/usr/bin/readsb \
+ExecStart=PATH_TO_EXECUTABLE \
 $PIAWARE_DUMP1090_LOCATION_OPTIONS $RECEIVER_OPTIONS $DECODER_OPTIONS $NET_OPTIONS $JSON_OPTIONS \
  --write-json /run/combine1090 --quiet
 Type=simple

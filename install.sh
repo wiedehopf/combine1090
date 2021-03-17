@@ -9,8 +9,7 @@ then
 fi
 
 
-if [ -z $1 ] || [ $1 != "test" ]
-then
+if [[ -z "$1" ]] || [[ "$1" != "test" ]]; then
 	cd /tmp
 	if ! wget -q -O master.zip https://github.com/wiedehopf/combine1090/archive/master.zip || ! unzip -q -o master.zip
 	then
@@ -18,6 +17,11 @@ then
 		exit 1
 	fi
 	cd combine1090-master
+elif [[ "$1" == "test" ]]; then
+    tmpdir=/tmp/combine1090-test
+    mkdir -p $tmpdir
+    cp -r ./* $tmpdir
+    cd $tmpdir
 fi
 
 # if you are reading this and trying to install using manual commands, use these instead of the block above
@@ -76,3 +80,7 @@ echo "After you are done with configuration don't forget"
 echo "to apply the new settings (sudo systemctl restart combine1090)"
 echo "Webinterface available at $(ip route | grep -m1 -o -P 'src \K[0-9,.]*')/combine1090"
 echo --------------
+
+
+cd /tmp
+rm -rf /tmp/combine1090-master /tmp/combine1090-test
