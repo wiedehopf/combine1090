@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+IPATH=/usr/local/share/combine1090
 
 if ! socat -h >/dev/null
 then
@@ -22,6 +23,12 @@ elif [[ "$1" == "test" ]]; then
     mkdir -p $tmpdir
     cp -r ./* $tmpdir
     cd $tmpdir
+fi
+
+
+if ! id -u combine1090 &>/dev/null
+then
+    adduser --system --home $IPATH --no-create-home --quiet combine1090
 fi
 
 # if you are reading this and trying to install using manual commands, use these instead of the block above

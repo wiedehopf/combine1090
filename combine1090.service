@@ -7,7 +7,7 @@ After=network.target
 
 [Service]
 EnvironmentFile=/etc/default/combine1090
-User=dump1090
+User=combine1090
 ExecStart=-/usr/local/bin/combine1090.sh
 Type=simple
 Restart=always

@@ -8,7 +8,7 @@ After=network.target
 [Service]
 EnvironmentFile=/etc/default/combine1090
 EnvironmentFile=-/var/cache/piaware/location.env
-User=dump1090
+User=combine1090
 RuntimeDirectory=combine1090
 RuntimeDirectoryMode=0755
 ExecStart=PATH_TO_EXECUTABLE \
