@@ -3,23 +3,49 @@ SOURCES= 127.0.0.1 192.168.2.23
 # Example: SOURCES= 127.0.0.1 192.168.2.23
 # this would combine the data from receivers running on 127.0.0.1 and 192.168.2.23
 
-
-
-
-# which ports to collect beast data from (for piaware/dump1090-fa this is 30005 for ADS-B and 30105 for MLAT)
+# Append the ports to collect beast data from
 PORTS= 30005 30105
+# 30005 ADS-B data
+# 30105 MLAT results from piaware/flightaware
+# 30157 MLAT results from adsbexchange
 
 
 # for the IP addresses in SOURCES all PORTS are used
 # If your sources have the beast data on different ports, you can use CUSTOM to configure host:port combinations instead.
-# uncomment and add IP addresses with ports for redirection
+# uncomment CUSTOM (remove # at start of line below) and modify / append IP:PORT combinations:
+
 #CUSTOM=127.0.0.1:29005 127.0.0.1:29999
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # DON'T MODIFY BELOW IF YOU DON'T UNDERSTAND HOW THIS WHOLE THING WORKS
 
 #where the data shall go, for display under /combine1090 leave it as is.
 TARGET=127.0.0.1:29004
-
 
 # for even more custom combination of soure/target, each pair specified in the SOTA variable is connected
 # SOTA="source:port/target:port source2:port/target2:port"
@@ -28,4 +54,4 @@ TARGET=127.0.0.1:29004
 RECEIVER_OPTIONS="--net-only"
 DECODER_OPTIONS="--max-range 360"
 NET_OPTIONS="--net --net-heartbeat 60 --net-ro-size 1000 --net-ro-interval 0.2 --net-ri-port 29001 --net-ro-port 29002 --net-sbs-port 29003 --net-bi-port 29004 --net-bo-port 29005"
-JSON_OPTIONS="--json-location-accuracy 1"
+JSON_OPTIONS="--json-location-accuracy 2"
