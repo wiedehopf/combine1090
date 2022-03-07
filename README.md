@@ -1,9 +1,9 @@
 # combine1090
-Combine data from multiple dump1090 receivers (or other receivers providing beast protocol data)
+Combine data from multiple dump1090 / readsb receivers (or other receivers providing beast protocol data)
 
 Does not interfere with an already configured dump1090-fa / readsb but instead creates another instance with its own webinterface at /combine1090
 
-Requires dump1090-fa or readsb to be installed, see end of this page for install scripts for either.
+Should work on the adsbexchange / piaware sd-card images.
 
 ## Installation:
 ```
@@ -32,8 +32,8 @@ sudo systemctl restart combine1090
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/redirect-only.sh)"
 ```
 Configure SOURCES (source ips), PORTs (source ports) and TARGET (target ip and port) in /etc/default/combine1090.
-There will be no dedicated dump1090-fa started as a target for data redirection, you need to provide that target yourself.
-Also as there is no extra dump1090-fa there will be no extra web page or lighttpd configuration.
+There will be no dedicated readsb started as a target for data redirection, you need to provide that target yourself.
+Also as there is no extra readsb there will be no extra web page or lighttpd configuration.
 
 ## View the map:
 
@@ -52,5 +52,3 @@ sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/combine
 ### Questions? FAQ!
 https://github.com/wiedehopf/adsb-wiki/wiki
 https://github.com/wiedehopf/adsb-wiki/wiki/Raspbian-Lite%3A-ADS-B-receiver
-https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-readsb
-https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-dump1090-fa
