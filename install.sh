@@ -1,14 +1,19 @@
 #!/bin/bash
 
+set -e
+trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND"' ERR
+renice 10 $$
 
 IPATH=/usr/local/share/combine1090
 
-if ! socat -h >/dev/null
-then
-	apt-get update
-	apt-get install -y socat
-fi
+function aptInstall() {
+    if ! apt install -y --no-install-recommends --no-install-suggests "$@"; then
+        apt update
+        apt install -y --no-install-recommends --no-install-suggests "$@"
+    fi
+}
 
+aptInstall wget socat
 
 if [[ -z "$1" ]] || [[ "$1" != "test" ]]; then
 	cd /tmp
@@ -24,7 +29,6 @@ elif [[ "$1" == "test" ]]; then
     cp -r ./* $tmpdir
     cd $tmpdir
 fi
-
 
 if ! id -u combine1090 &>/dev/null
 then
@@ -47,6 +51,8 @@ rm -f /etc/systemd/system/combine1090-dump.service /etc/systemd/system/combine10
 cp combine1090.sh /usr/local/bin
 chmod +x /usr/local/bin/combine1090.sh
 
+# compile readsb
+bash readsb-nopackage.sh "$IPATH/bin"
 
 systemctl enable combine1090
 
@@ -58,18 +64,6 @@ if [[ $1 == "redirect-only" ]]; then
 	echo "to apply the new settings (sudo systemctl restart combine1090)"
 	echo --------------
 	exit 0
-fi
-
-if command -v dump1090-fa &>/dev/null; then
-    sed -i -e "s?PATH_TO_EXECUTABLE?$(command -v dump1090-fa)?g" combine1090-dump.service
-elif command -v readsb &>/dev/null; then
-    sed -i -e "s?PATH_TO_EXECUTABLE?$(command -v readsb)?g" combine1090-dump.service
-else
-	echo --------------
-	echo "Installation failed: combine1090 requires readsb or dump1090-fa to be installed!"
-	echo "Install readsb or dump1090-fa and run this installer again."
-    echo "https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-readsb"
-	exit 1
 fi
 
 cp combine1090-dump.service /lib/systemd/system

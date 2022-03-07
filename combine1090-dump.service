@@ -1,6 +1,6 @@
 
 [Unit]
-Description=combine1090-dump - combine1090 dump1090-fa/readsb instance
+Description=combine1090-dump - combine1090 readsb instance
 Documentation=https://github.com/wiedehopf/combine1090
 Wants=network.target
 After=network.target
@@ -11,7 +11,7 @@ EnvironmentFile=-/var/cache/piaware/location.env
 User=combine1090
 RuntimeDirectory=combine1090
 RuntimeDirectoryMode=0755
-ExecStart=PATH_TO_EXECUTABLE \
+ExecStart= /usr/local/share/combine1090/bin/readsb \
 $PIAWARE_DUMP1090_LOCATION_OPTIONS $RECEIVER_OPTIONS $DECODER_OPTIONS $NET_OPTIONS $JSON_OPTIONS \
  --write-json /run/combine1090 --quiet
 Type=simple
