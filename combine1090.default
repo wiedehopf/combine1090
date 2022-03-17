@@ -53,5 +53,5 @@ TARGET=127.0.0.1:29004
 #options for dump1090-fa where all the data goes
 RECEIVER_OPTIONS="--net-only"
 DECODER_OPTIONS="--max-range 360"
-NET_OPTIONS="--net --net-heartbeat 60 --net-ro-size 1000 --net-ro-interval 0.2 --net-ri-port 29001 --net-ro-port 29002 --net-sbs-port 29003 --net-bi-port 29004 --net-bo-port 29005"
+NET_OPTIONS="--net --net-heartbeat 60 --net-ro-size 1000 --net-ro-interval 0.2 --net-ri-port 29001 --net-ro-port 29002 --net-sbs-port 29003 --net-bi-port 29004 --net-bo-port 29005 --net-sbs-in-port 29106"
 JSON_OPTIONS="--json-location-accuracy 2"
