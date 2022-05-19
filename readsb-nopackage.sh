@@ -44,6 +44,7 @@ fi
 
 cd "$ipath/git"
 
+make clean
 make -j3 AIRCRAFT_HASH_BITS=14 RTLSDR=yes
 
 mkdir -p "$ipath/bin"
