@@ -24,7 +24,7 @@ function aptInstall() {
     fi
 }
 
-aptInstall git gcc make libusb-1.0-0-dev librtlsdr-dev librtlsdr0 libncurses5-dev zlib1g-dev zlib1g
+aptInstall git gcc make libusb-1.0-0-dev librtlsdr-dev librtlsdr0 libncurses5-dev zlib1g-dev zlib1g libzstd-dev libzstd1
 
 function getGIT() {
     # getGIT $REPO $BRANCH $TARGET (directory)
@@ -45,7 +45,7 @@ fi
 cd "$ipath/git"
 
 make clean
-make -j3 AIRCRAFT_HASH_BITS=14 RTLSDR=yes
+make -j3 AIRCRAFT_HASH_BITS=14 RTLSDR=yes OPTIMIZE="-O3 -march=native"
 
 mkdir -p "$ipath/bin"
 cp --remove-destination readsb viewadsb "$ipath/bin"
