@@ -5,6 +5,11 @@ Does not interfere with an already configured dump1090-fa / readsb but instead c
 
 Should work on the adsbexchange / piaware sd-card images.
 
+## Alternative
+
+For quite a few users, this could be an easier to use alternative: https://adsb.im/stage2
+If you're looking for an all in one image with configuration via webinterface, give it a try.
+
 ## Installation:
 ```
 sudo bash -c "$(wget -q -O - https://raw.githubusercontent.com/wiedehopf/combine1090/master/install.sh)"
