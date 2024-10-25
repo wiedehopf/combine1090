@@ -24,7 +24,7 @@ sudo nano /etc/default/combine1090
 Ctrl-x to exit, y (yes) to save when asked.
 Then restart combine1090:
 ```
-sudo systemctl restart combine1090
+sudo systemctl restart combine1090 combine1090-dump
 ```
 
 ## Install data redirection only
